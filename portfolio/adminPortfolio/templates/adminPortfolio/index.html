@@ -1,0 +1,87 @@
+{% load static %}
+<html lang="fr">
+    {% csrf_token %}
+    {% for info in infos %}
+    <head>
+
+        <title>{{info.names}}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/css/style.css">
+    </head>
+
+    <body>
+        <!--Couverture-->
+        <div class="cover">
+            {% if info.image %}
+                <img class="profil_cover" src="{{ info.image }}" alt="image profil">
+            {% endif %}
+            <h1>{{info.names}}</h1>
+            <p>{{info.competenceDomain}}</p>
+            
+            <div style="text-align: center;">
+                <a class="button_contact" href="mailto:{{info.mail}}?subject=Contact%20depuis%20{{info.names}}.com">ME CONTACTER</a>
+            </div>
+
+            <div class="cover_contact">
+                <p><a href="mailto:{{info.mail}}?subject=Contact%20depuis%20{{info.names}}.com">{{info.mail}}</a></p>
+                <p><a href="tel:{{info.phone}}">{{info.phone}}</a></p>
+            </div>
+
+        </div>
+
+        <!--section grise 1-->
+        <div class="section section_grise1">
+            <div class="separateur"></div>
+            <p>{{info.competenceDomain}}</p>
+        </div>
+        <!--section blanche-->
+        <div class="section">
+            <h2>En savoir plus</h2>
+                {% if info.image %}
+                    <img class="col-contenu" src="{{ info.image }}" alt="image profil">
+                {% endif %}
+            <div class="col-contenu float_right">
+                <div class="texte_ligne-vertical">
+                    <p class="texte_ligne-vertical">Perpétuellement à la recherche de l'amélioration de mes
+                        compétences, je vous propose un profil ayant une aisance
+                        dans le dévellopement d'applications webs et mobiles. 
+                        Et ayant travailler sur de multiples projets
+                        avec <b>Django, Spring Boot, MySql, Oracle, Postman, Xamarin Forms, ReactJs,  Native Android Framework, Html5 & CSS, Wordpress, etc...
+                    </p>
+                    <a href="detail_profil.html">En savoir plus sur mon profil</a>
+                </div>
+            </div>
+        </div>
+        <!--section grise 2-->
+        <div class="section section_grise2">
+            <h2>Portfolio</h2>
+            <table style="display: inline-block;" class="col_portfolio">
+                <tr>
+                    <td><div class="barre_vertical"></div></td>
+                    <td style="width: 100%;"><a href="portfolio-resto.html"><img style="width: 100%;" src="assets/images/project1small.jpg"></a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: center;"><a href="portfolio-resto.html">Application web Menu Pizza</a></td>
+                </tr>
+            </table>
+
+            <table class="float_right col_portfolio">
+                <tr>
+                    <td><div class="barre_vertical"></div></td>
+                    <td style="width: 100%;"><a href="portfolio-app-mobile.html"><img style="width: 100%;" src="assets/images/project2small.jpg"></a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: center;"><a href="portfolio-app-mobile.html">Application mobile<br>"Intelligence Artificielle"</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="text-align: center; background-color: rgb(255, 196, 0);"><a href="detail_profil.html">Consulter les details de mon profil</a></div>
+        <!--section blanche-->
+            <iframe src="contact_frame.html" scrolling="no"></iframe>
+    </body>
+    {% endfor %}
+</html>
