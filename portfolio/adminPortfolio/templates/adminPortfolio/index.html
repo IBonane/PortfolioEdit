@@ -13,8 +13,8 @@
     <body>
         <!--Couverture-->
         <div class="cover">
-            {% if info.image %}
-                <img class="profil_cover" src="{{ info.image }}" alt="image profil">
+            {% if info.imageProfile %}
+                <img class="profil_cover" src="{{ info.imageProfile.url }}" alt="image profil">
             {% endif %}
             <h1>{{info.names}}</h1>
             <p>{{info.competenceDomain}}</p>
@@ -38,17 +38,15 @@
         <!--section blanche-->
         <div class="section">
             <h2>En savoir plus</h2>
-                {% if info.image %}
-                    <img class="col-contenu" src="{{ info.image }}" alt="image profil">
+                {% if info.imageParagraph %}
+                    <img class="col-contenu" src="{{ info.imageParagraph.url }}" alt="image profil">
                 {% endif %}
             <div class="col-contenu float_right">
                 <div class="texte_ligne-vertical">
-                    <p class="texte_ligne-vertical">Perpétuellement à la recherche de l'amélioration de mes
-                        compétences, je vous propose un profil ayant une aisance
-                        dans le dévellopement d'applications webs et mobiles. 
-                        Et ayant travailler sur de multiples projets
-                        avec <b>Django, Spring Boot, MySql, Oracle, Postman, Xamarin Forms, ReactJs,  Native Android Framework, Html5 & CSS, Wordpress, etc...
-                    </p>
+                        {{ info.firstParagraph }}
+                        <br>
+                        <b>{{ info.wordsOfFirstParagraph }}</b>
+                        <br>
                     <a href="detail_profil.html">En savoir plus sur mon profil</a>
                 </div>
             </div>
